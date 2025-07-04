@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo Kids</title>
+  <style>
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5rem !important;
+        padding: 30px 10px !important;
+      }
+      .modal {
+        width: 95% !important;
+        padding: 20px !important;
+      }
+      .modal img {
+        height: auto !important;
+        max-height: 200px !important;
+      }
+      .modal h2 {
+        font-size: 1.5rem !important;
+      }
+      .modal p {
+        font-size: 1rem !important;
+      }
+      .card h2 {
+        font-size: 1rem !important;
+        padding: 8px !important;
+      }
+    }
+
+   
+    * { box-sizing: border-box; }
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      background-color: rgb(199, 72, 26);
+      color: #fff;
+      padding: 20px;
+    }
+
+    h1 {
+      padding: 50px 20px;
+      text-align: center;
+      font-size: 2.5rem;
+      color: white;
+    }
+    .subtitle{
+        text-align: center;
+        font-size: 2.0rem;
+        color: whitesmoke;
+        padding:20px;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: #fff;
+      color: #333;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card h2 {
+      font-size: 1.2rem;
+      padding: 10px 15px;
+      margin: 0;
+      background-color: #e0f7f9;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal {
+      background: white;
+      color: #333;
+      border-radius: 12px;
+      padding: 30px;
+      max-width: 600px;
+      width: 90%;
+      max-height: 90%;
+      overflow-y: auto;
+      text-align: center;
+      position: relative;
+    }
+
+    .modal img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .modal h2 {
+      font-size: 2rem;
+      margin: 10px 0;
+    }
+
+    .modal p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: #ff4444;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      background: #cc0000;
+    }
+
+    .intertexto{
+        font-size: 25px;
+        font-family: Verdana;
+        text-align: center;
+        padding: 10px ;
+        color:black
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Catálogo de Aulas Experimentais <span style="color: #0d7be2;">Ctrl+</span><span style="color: #e2970d;">Play</span> </h1>
+  <h2 class="subtitle">MÓDULO KIDS</h2>
+  <div class="intertexto" >Clique nos cards abaixo para ter mais informações sobre cada uma das aulas disponíveis aqui na Ctrl+Play .</div>
+  <div class="card-container">
+    <div class="card" onclick="openModal('Flappy Bird', 'images/gif_flappy.gif', 'Se você gosta de programar jogos essa aula é a sua cara. Crie seu próprio jogo Flappy Bird com programação em blocos! Personalize o cenário, sons e obstáculos, e desafie seus amigos no final!')">
+      <img src="images/Flappy-bird.webp" alt="Flappy Bird">
+      <h2>🐥 Flappy Bird</h2>
+    </div>
+
+    <div class="card" onclick="openModal('Construct 3', 'images/gif_c3.gif', 'Use a plataforma Construct 3 para criar um jogo visual completo, com personagens, cenários e pontos. Tudo feito do zero por você!')">
+      <img src="images/construct3.png" alt="Construct 3">
+      <h2>🎮 Construct 3</h2>
+    </div>
+
+    <div class="card" onclick="openModal('App Inventor', 'images/img_appinventor.png', 'Descubra como criar aplicativos de verdade! Com o App Inventor, você monta um app interativo com botões, imagens e comandos inteligentes e pode ver como ficou no celular depois.')">
+      <img src="images/appinventor.png" alt="App Inventor">
+      <h2>🤖 App Inventor</h2>
+    </div>
+
+    <div class="card" onclick="openModal('Makey Makey', 'images/gif_makeymakey.webp', 'Se você gosta de robótica vai adorar essa aula! Construa um piano maluco com frutas, papel alumínio e criatividade! Descubra como transformar qualquer objeto em teclas musicais!')">
+      <img src="images/makeymakey.jpg" alt="Makey Makey">
+      <h2>🎹 Makey Makey</h2>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modalOverlay" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal" onclick="event.stopPropagation()">
+      <button class="close-btn" onclick="closeModal()">✖</button>
+      <img id="modalGif" src="" alt="GIF da aula">
+      <h2 id="modalTitle">Título</h2>
+      <p id="modalText">Descrição da aula.</p>
+    </div>
+  </div>
+  <footer style="margin-top: 50px; text-align: center; padding: 5px; background-color: ">
+    <img src="images/logo.png" alt="Logo" style="height: 100px; margin-bottom: 10px;">
+    <p style="color: #fff;">© Ctrl+Play - Ouro Preto - BH</p>
+    </footer>
+  <script>
+    function openModal(title, gifSrc, text) {
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalGif').src = gifSrc;
+      document.getElementById('modalText').textContent = text;
+      document.getElementById('modalOverlay').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('active');
+      document.getElementById('modalGif').src = ''; // parar o gif se necessário
+    }
+  </script>
+
+</body>
+</html>
