@@ -5,60 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Catálogo Kids</title>
   <style>
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.5rem !important;
-        padding: 30px 10px !important;
-      }
-      .modal {
-        width: 95% !important;
-        padding: 20px !important;
-      }
-      .modal img {
-        height: auto !important;
-        max-height: 200px !important;
-      }
-      .modal h2 {
-        font-size: 1.5rem !important;
-      }
-      .modal p {
-        font-size: 1rem !important;
-      }
-      .card h2 {
-        font-size: 1rem !important;
-        padding: 8px !important;
-      }
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
 
-   
     * { box-sizing: border-box; }
+
     body {
-      font-family: sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
-      background-color: rgb(199, 72, 26);
-      color: #fff;
-      padding: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+      padding: 0;
     }
 
-    h1 {
-      padding: 50px 20px;
+    /* Cabeçalho aprimorado */
+    .hero {
       text-align: center;
-      font-size: 2.5rem;
-      color: white;
-    }
-    .subtitle{
-        text-align: center;
-        font-size: 2.0rem;
-        color: whitesmoke;
-        padding:20px;
+      padding: 40px 20px 10px;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
+    .main-title {
+      font-size: 2.6rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    .ctrl {
+      color: #0d7be2;
+      font-weight: 800;
+    }
+
+    .play {
+      color: #f4b400;
+      font-weight: 800;
+    }
+
+    .module {
+      font-size: 1.6rem;
+      color: #555;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .description {
+      font-size: 1.1rem;
+      color: #444;
+      line-height: 1.6;
+      padding: 0 20px;
+    }
+
+    /* Container dos cards */
     .card-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
       max-width: 1200px;
-      margin: 0 auto;
+      margin: 30px auto 60px;
+      padding: 0 20px;
     }
 
     .card {
@@ -67,7 +76,13 @@
       border-radius: 12px;
       overflow: hidden;
       cursor: pointer;
-      transition: transform 0.2s;
+      transition: transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
     }
 
     .card img {
@@ -110,6 +125,7 @@
       overflow-y: auto;
       text-align: center;
       position: relative;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
 
     .modal img {
@@ -133,7 +149,7 @@
       position: absolute;
       top: 10px;
       right: 15px;
-      background: #ff4444;
+      background: #ff6f61;
       color: white;
       border: none;
       border-radius: 50%;
@@ -144,23 +160,103 @@
     }
 
     .close-btn:hover {
-      background: #cc0000;
+      background: #e74c3c;
     }
 
-    .intertexto{
-        font-size: 25px;
-        font-family: Verdana;
-        text-align: center;
-        padding: 10px ;
-        color:black
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      padding: 20px 10px;
+      background-color: #fff;
+      border-top: 1px solid #eee;
+    }
+
+    footer p {
+      color: #777;
+      font-size: 0.9rem;
+    }
+    .why-ctrlplay {
+      background-color: #fff9e5;
+      border-top: 2px solid #f4b400;
+      padding: 30px 20px;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+    }
+
+    .why-ctrlplay h3 {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      color: #222;
+    }
+
+    .why-ctrlplay ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto 20px;
+      max-width: 550px;
+      text-align: left;
+    }
+
+    .why-ctrlplay li {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      padding-left: 1em;
+      text-indent: -1em;
+    }
+
+    .why-ctrlplay .cta {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0d7be2;
+    }
+
+
+    @media (max-width: 600px) {
+      .main-title {
+        font-size: 2rem;
+      }
+
+      .modal {
+        width: 95% !important;
+        padding: 20px !important;
+      }
+
+      .modal img {
+        max-height: 200px;
+      }
+
+      .modal h2 {
+        font-size: 1.5rem;
+      }
+
+      .modal p {
+        font-size: 1rem;
+      }
+
+      .card h2 {
+        font-size: 1rem;
+        padding: 8px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>Catálogo de Aulas Experimentais <span style="color: #0d7be2;">Ctrl+</span><span style="color: #e2970d;">Play</span> </h1>
-  <h2 class="subtitle">MÓDULO KIDS</h2>
-  <div class="intertexto" >Clique nos cards abaixo para ter mais informações sobre cada uma das aulas disponíveis aqui na Ctrl+Play .</div>
+  <!-- Cabeçalho -->
+  <header class="hero">
+    <h1 class="main-title">
+      Catálogo de Aulas Experimentais<br />
+      <span class="ctrl">Ctrl+</span><span class="play">Play</span>
+    </h1>
+    <h2 class="module">Módulo Kids</h2>
+    <p class="description">
+      Escolha sua aula clicando nos cards abaixo para ver mais detalhes,<br>
+      imagens e o que será explorado em cada experiência!
+    </p>
+  </header>
+
+  <!-- Cards -->
   <div class="card-container">
     <div class="card" onclick="openModal('Flappy Bird', 'images/gif_flappy.gif', 'Se você gosta de programar jogos essa aula é a sua cara. Crie seu próprio jogo Flappy Bird com programação em blocos! Personalize o cenário, sons e obstáculos, e desafie seus amigos no final!')">
       <img src="images/Flappy-bird.webp" alt="Flappy Bird">
@@ -192,10 +288,24 @@
       <p id="modalText">Descrição da aula.</p>
     </div>
   </div>
-  <footer style="margin-top: 50px; text-align: center; padding: 5px; background-color: ">
+  <section class="why-ctrlplay">
+  <h3> Por que experimentar a Ctrl+Play?</h3>
+  <ul>
+    <li><strong>Metodologia lúdica</strong> e interativa</li>
+    <li><strong>Habilidades do futuro</strong> com criatividade e lógica</li>
+    <li><strong>Acompanhamento individual</strong> com professores capacitados</li>
+    <li><strong>Aprendizado leve</strong> para crianças curiosas</li>
+  </ul>
+  <p class="cta"> <strong>Agende a aula experimental gratuita!</strong></p>
+</section>
+
+  <!-- Rodapé -->
+  <footer>
     <img src="images/logo.png" alt="Logo" style="height: 100px; margin-bottom: 10px;">
-    <p style="color: #fff;">© Ctrl+Play - Ouro Preto - BH</p>
-    </footer>
+    <p>© Ctrl+Play - Ouro Preto - BH</p>
+  </footer>
+
+  <!-- Script do modal -->
   <script>
     function openModal(title, gifSrc, text) {
       document.getElementById('modalTitle').textContent = title;
@@ -206,9 +316,8 @@
 
     function closeModal() {
       document.getElementById('modalOverlay').classList.remove('active');
-      document.getElementById('modalGif').src = ''; // parar o gif se necessário
+      document.getElementById('modalGif').src = '';
     }
   </script>
-
 </body>
 </html>
