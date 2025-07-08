@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catálogo Kids</title>
+  <title>Catálogo Ctrl+Play</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
 
@@ -17,7 +17,37 @@
       padding: 0;
     }
 
-    /* Cabeçalho aprimorado */
+    .top-menu {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px 10px;
+      background-color: #fff;
+      border-bottom: 1px solid #eee;
+    }
+
+    .tab-btn {
+      font-size: 1rem;
+      padding: 10px 24px;
+      border: 2px solid #0d7be2;
+      background-color: transparent;
+      color: #0d7be2;
+      cursor: pointer;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      background-color: #0d7be2;
+      color: white;
+    }
+
+    .tab-btn.active {
+      background-color: #0d7be2;
+      color: white;
+    }
+
     .hero {
       text-align: center;
       padding: 40px 20px 10px;
@@ -34,12 +64,12 @@
     }
 
     .ctrl {
-      color: #0d7be2;
+      color: #0076ce;
       font-weight: 800;
     }
 
     .play {
-      color: #f4b400;
+      color: #f15a29;
       font-weight: 800;
     }
 
@@ -60,7 +90,6 @@
       padding: 0 20px;
     }
 
-    /* Container dos cards */
     .card-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -98,7 +127,6 @@
       background-color: #e0f7f9;
     }
 
-    /* Modal */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -175,13 +203,12 @@
       color: #777;
       font-size: 0.9rem;
     }
+
     .why-ctrlplay {
       background-color: #fff9e5;
       border-top: 2px solid #f4b400;
       padding: 30px 20px;
       text-align: center;
-      font-family: 'Poppins', sans-serif;
-      color: #333;
     }
 
     .why-ctrlplay h3 {
@@ -210,7 +237,6 @@
       font-weight: 600;
       color: #0d7be2;
     }
-
 
     @media (max-width: 600px) {
       .main-title {
@@ -243,43 +269,120 @@
 </head>
 <body>
 
-  <!-- Cabeçalho -->
-  <header class="hero">
-    <h1 class="main-title">
-      Catálogo de Aulas Experimentais<br />
-      <span class="ctrl">Ctrl+</span><span class="play">Play</span>
-    </h1>
-    <h2 class="module">Módulo Kids</h2>
-    <p class="description">
-      Escolha sua aula clicando nos cards abaixo para ver mais detalhes,<br>
-      imagens e o que será explorado em cada experiência!
-    </p>
-  </header>
+  <!-- Navegação entre abas -->
+  <nav class="top-menu">
+    <button class="tab-btn active" onclick="showSection('kids')">Kids</button>
+    <button class="tab-btn" onclick="showSection('teens')">Teens</button>
+  </nav>
 
-  <!-- Cards -->
-  <div class="card-container">
-    <div class="card" onclick="openModal('Flappy Bird', 'images/gif_flappy.gif', 'Se você gosta de programar jogos essa aula é a sua cara. Crie seu próprio jogo Flappy Bird com programação em blocos! Personalize o cenário, sons e obstáculos, e desafie seus amigos no final!')">
-      <img src="images/Flappy-bird.webp" alt="Flappy Bird">
-      <h2>🐥 Flappy Bird</h2>
+  <!-- Seção Kids -->
+  <section id="kids-section">
+    <header class="hero">
+      <h1 class="main-title">
+        Catálogo de Aulas Experimentais<br />
+        <span class="ctrl">Ctrl+</span><span class="play">Play</span>
+      </h1>
+      <h2 class="module">Módulo Kids</h2>
+      <p class="description">
+        Escolha sua aula clicando nos cards abaixo para ver mais detalhes,<br>
+        imagens e o que será explorado em cada experiência!
+      </p>
+    </header>
+
+    <div class="card-container">
+      <div class="card" onclick="openModal('Flappy Bird', 'images/gif_flappy.gif', 'Se você gosta de programar jogos essa aula é a sua cara. Crie seu próprio jogo Flappy Bird com programação em blocos! Personalize o cenário, sons e obstáculos, e desafie seus amigos no final! ')">
+        <img src="images/Flappy-bird.webp" alt="Flappy Bird">
+        <h2>Flappy Bird</h2>
+      </div>
+
+      <div class="card" onclick="openModal('Construct 3', 'images/gif_c3.gif', 'Use a plataforma Construct 3 para criar um jogo visual completo, com personagens, cenários e pontos. Tudo feito do zero por você!')">
+        <img src="images/construct3.png" alt="Construct 3">
+        <h2>Construct 3</h2>
+      </div>
+
+      <div class="card" onclick="openModal('App Inventor', 'images/img_appinventor.png', 'Descubra como criar aplicativos de verdade! Com o App Inventor, você monta um app interativo com botões, imagens e comandos inteligentes e pode ver como ficou no celular depois.')">
+        <img src="images/appinventor.png" alt="App Inventor">
+        <h2>App Inventor</h2>
+      </div>
+
+      <div class="card" onclick="openModal('Makey Makey', 'images/gif_makeymakey.webp', 'Se você gosta de robótica vai adorar essa aula! Construa um piano maluco com frutas, papel alumínio e criatividade! Descubra como transformar qualquer objeto em teclas musicais!')">
+        <img src="images/makeymakey.jpg" alt="Makey Makey">
+        <h2>Makey Makey</h2>
+      </div>
     </div>
 
-    <div class="card" onclick="openModal('Construct 3', 'images/gif_c3.gif', 'Use a plataforma Construct 3 para criar um jogo visual completo, com personagens, cenários e pontos. Tudo feito do zero por você!')">
-      <img src="images/construct3.png" alt="Construct 3">
-      <h2>🎮 Construct 3</h2>
-    </div>
+    <section class="why-ctrlplay">
+      <h3>Por que experimentar a Ctrl+Play?</h3>
+      <ul>
+        <li><strong>Metodologia lúdica</strong> e interativa</li>
+        <li><strong>Habilidades do futuro</strong> com criatividade e lógica</li>
+        <li><strong>Acompanhamento individual</strong> com professores capacitados</li>
+        <li><strong>Aprendizado leve</strong> para crianças curiosas</li>
+      </ul>
+      <p class="cta"><strong>Agende a aula experimental gratuita!</strong></p>
+    </section>
 
-    <div class="card" onclick="openModal('App Inventor', 'images/img_appinventor.png', 'Descubra como criar aplicativos de verdade! Com o App Inventor, você monta um app interativo com botões, imagens e comandos inteligentes e pode ver como ficou no celular depois.')">
-      <img src="images/appinventor.png" alt="App Inventor">
-      <h2>🤖 App Inventor</h2>
-    </div>
+    <footer>
+      <img src="images/logo.png" alt="Logo" style="height: 100px; margin-bottom: 10px;">
+      <p>© Ctrl+Play - Ouro Preto - BH</p>
+    </footer>
+  </section>
 
-    <div class="card" onclick="openModal('Makey Makey', 'images/gif_makeymakey.webp', 'Se você gosta de robótica vai adorar essa aula! Construa um piano maluco com frutas, papel alumínio e criatividade! Descubra como transformar qualquer objeto em teclas musicais!')">
-      <img src="images/makeymakey.jpg" alt="Makey Makey">
-      <h2>🎹 Makey Makey</h2>
-    </div>
+  <!-- Seção Teens -->
+  <section id="teens-section" style="display: none;">
+    <header class="hero">
+      <h1 class="main-title">
+        Catálogo de Aulas Experimentais<br />
+        <span class="ctrl">Ctrl+</span><span class="play">Play</span>
+      </h1>
+      <h2 class="module">Módulo Teens</h2>
+      <p class="description">
+        Escolha sua aula clicando nos cards abaixo para ver mais detalhes,<br>
+        imagens e o que será explorado em cada experiência!
+      </p>
+    </header>
+
+    <div class="card-container">
+  <div class="card" onclick="openModal('Arduino', 'images/gif_arduino.gif', 'Nesta aula, vamos programar um semáforo de verdade! Usando Arduino, cabos e LEDs, você vai aprender como controlar as luzes com código. Uma forma divertida de entender eletrônica na prática!')">
+    <img src="images/arduinobanner.jpg" alt="Arduino">
+    <h2>Arduino</h2>
   </div>
 
-  <!-- Modal -->
+  <div class="card" onclick="openModal('Construct 3', 'images/gif_c3.gif', 'Com o Construct 3, você vai criar um jogo visual completo: personagem, cenário, pontuação e tudo mais! Tudo isso de forma simples e divertida, com blocos de programação.')">
+    <img src="images/construct3.png" alt="Construct 3">
+    <h2>Construct 3</h2>
+  </div>
+
+  <div class="card" onclick="openModal('GameMaker', 'images/gif_gm.gif', 'Aprenda como funciona a criação de jogos em 2D e comece o desenvolvimento do clássico jogo “Asteroid”. Você vai programar movimentos, colisões e muito mais!')">
+    <img src="images/gm.jpg"  alt="GameMaker">
+    <h2>GameMaker</h2>
+  </div>
+
+  <div class="card" onclick="openModal('Scratch+Makey Makey', 'images/gif_makeymakey.webp', 'Vamos montar um piano interativo com o Scratch e o Makey Makey! Ao tocar nas teclas (feitas com papel alumínio!), sons reais vão tocar no computador. Uma aula super divertida e criativa!')">
+    <img src="images/makeymakey.jpg" alt="Makey Makey">
+    <h2>Scratch+Makey Makey</h2>
+  </div>
+  </div>
+
+
+    <section class="why-ctrlplay">
+      <h3>Por que experimentar a Ctrl+Play?</h3>
+      <ul>
+        <li><strong>Metodologia lúdica</strong> e interativa</li>
+        <li><strong>Habilidades do futuro</strong> com criatividade e lógica</li>
+        <li><strong>Acompanhamento individual</strong> com professores capacitados</li>
+        <li><strong>Aprendizado leve</strong> para jovens criativos</li>
+      </ul>
+      <p class="cta"><strong>Agende a aula experimental gratuita!</strong></p>
+    </section>
+
+    <footer>
+      <img src="images/logo.png" alt="Logo" style="height: 100px; margin-bottom: 10px;">
+      <p>© Ctrl+Play - Ouro Preto - BH</p>
+    </footer>
+  </section>
+
+  <!-- Modal compartilhado -->
   <div id="modalOverlay" class="modal-overlay" onclick="closeModal(event)">
     <div class="modal" onclick="event.stopPropagation()">
       <button class="close-btn" onclick="closeModal()">✖</button>
@@ -288,24 +391,7 @@
       <p id="modalText">Descrição da aula.</p>
     </div>
   </div>
-  <section class="why-ctrlplay">
-  <h3> Por que experimentar a Ctrl+Play?</h3>
-  <ul>
-    <li><strong>Metodologia lúdica</strong> e interativa</li>
-    <li><strong>Habilidades do futuro</strong> com criatividade e lógica</li>
-    <li><strong>Acompanhamento individual</strong> com professores capacitados</li>
-    <li><strong>Aprendizado leve</strong> para crianças curiosas</li>
-  </ul>
-  <p class="cta"> <strong>Agende a aula experimental gratuita!</strong></p>
-</section>
 
-  <!-- Rodapé -->
-  <footer>
-    <img src="images/logo.png" alt="Logo" style="height: 100px; margin-bottom: 10px;">
-    <p>© Ctrl+Play - Ouro Preto - BH</p>
-  </footer>
-
-  <!-- Script do modal -->
   <script>
     function openModal(title, gifSrc, text) {
       document.getElementById('modalTitle').textContent = title;
@@ -317,6 +403,18 @@
     function closeModal() {
       document.getElementById('modalOverlay').classList.remove('active');
       document.getElementById('modalGif').src = '';
+    }
+
+    function showSection(section) {
+      const kids = document.getElementById('kids-section');
+      const teens = document.getElementById('teens-section');
+
+      kids.style.display = section === 'kids' ? 'block' : 'none';
+      teens.style.display = section === 'teens' ? 'block' : 'none';
+
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`.tab-btn[onclick*="${section}"]`).classList.add('active');
     }
   </script>
 </body>
